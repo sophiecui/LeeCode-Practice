@@ -10,6 +10,5 @@
                 }
             }
         }
-        return result;
-        
+        return result;   
     }
