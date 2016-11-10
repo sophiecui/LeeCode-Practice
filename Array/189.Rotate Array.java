@@ -22,7 +22,6 @@ public class Solution {
             nums[j] = array1[i];
             i++;
         }
-        return;
-        
+        return; 
     }
 }
