@@ -19,7 +19,6 @@ public class Solution {
             q.poll();
             i++;
         }
-        return q.peek();
-        
+        return q.peek();  
     }
 }
