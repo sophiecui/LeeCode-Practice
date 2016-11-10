@@ -7,8 +7,6 @@
             }
             nums[temp-1] += nums.length;
         }
-        
-        
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] <= nums.length){
                 result.add(i+1);
