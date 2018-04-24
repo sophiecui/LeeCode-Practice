@@ -132,28 +132,36 @@ public class Solution {
         if (start >= end){
             return;
         }
-        int pivot = int(start + Math.random()* (end - start));
+        Random seed = new Random();
+        int pivot = start + seed.nextInt (end - start);
         int index = partition(array, start, end, pivot);
         quickSort(array, start, index - 1);
         quickSort(array, index + 1, end);
     }
 
-    private int partition(int[] array, int start, int end, int pivot){
+    public int partition(int[] array, int start, int end, int pivot){
         int i = start;
         int j = end - 1;
         swap(array, end, pivot);
         while (i <= j) {
-            if (array[i] >= array[end] && array[j] < array[end]){
-                swap(array, i++, j--);
-            } else if (array[i] >= array[end] && array[j] >= array[end]){
+            if (array[i] >= array[end]){
                 swap(array, i, j--);
-            } else if (array[i] < array[end] && array[j] < array[end]){
-                swap(array, ++i, j);
+                continue;
+            } else if (array[j] < array[end]){
+                swap(array, i++, j);
+                continue;
             } else {
                 i++;
-                j--;
             }
         }
+        swap(array, i, end);
+        return i;
+    }
+
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
 
